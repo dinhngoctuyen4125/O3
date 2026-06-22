@@ -5,7 +5,7 @@ You can install the required dependencies using the following command:
 ```
 conda create -n o3 python=3.10
 conda activate o3
-pip install -r requiremets.txt
+pip install -r requirements.txt
 ```
 
 ## 2) Preparing data
