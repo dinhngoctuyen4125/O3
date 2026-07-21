@@ -1,4 +1,6 @@
 #!/bin/bash
+#SBATCH --output=/home/user03/tuyen/O3/ScienceQA_expriment/logs/%x_%j.out
+#SBATCH --error=/home/user03/tuyen/O3/ScienceQA_expriment/logs/%x_%j.err
 
 echo "===== HOST ====="
 hostname
