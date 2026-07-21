@@ -5,14 +5,14 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=30          # khoảng 10 CPU/GPU
 #SBATCH --mem=120G                  # có thể điều chỉnh
-#SBATCH --gres=gpu:3
+#SBATCH --gres=gpu:2
 #SBATCH --output=/home/user03/tuyen/O3/ScienceQA_expriment/logs/%x_%j.out
 #SBATCH --error=/home/user03/tuyen/O3/ScienceQA_expriment/logs/%x_%j.err
 
 cd /home/user03/tuyen/O3/ScienceQA_expriment
 
 torchrun \
-    --nproc_per_node=3 \
+    --nproc_per_node=2 \
     --nnodes=1 \
     train_basemodel.py \
     --model_name_or_path NousResearch/Llama-2-7b-hf \
