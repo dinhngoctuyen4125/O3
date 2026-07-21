@@ -18,7 +18,7 @@ Generating the unlearned data:
 python preprocess_scienceqa.py
 python preprocess_scienceqa_RD.py
 python preprocess_scienceqa_SD.py
-python preprocess_random_labeling.py
+python preprocess_scienceqa_random_labeling.py
 ```
 The generated data will saved at ``./data``.
 
