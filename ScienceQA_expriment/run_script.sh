@@ -11,6 +11,12 @@
 
 cd /home/user03/tuyen/O3/ScienceQA_expriment
 
+echo "===== GPU ====="
+nvidia-smi
+
+echo "===== CUDA_VISIBLE_DEVICES ====="
+echo $CUDA_VISIBLE_DEVICES
+
 torchrun \
     --nproc_per_node=2 \
     --nnodes=1 \
