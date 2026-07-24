@@ -1,0 +1,155 @@
+================ HOST ================
+dgx01
+
+================ GPU ================
+Fri Jul 24 16:54:31 2026       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 470.141.03   Driver Version: 470.141.03   CUDA Version: 11.4     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA A100-SXM...  On   | 00000000:90:00.0 Off |                    0 |
+| N/A   40C    P0    69W / 400W |      3MiB / 81251MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA A100-SXM...  On   | 00000000:B7:00.0 Off |                    0 |
+| N/A   32C    P0    63W / 400W |      3MiB / 81251MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+
+================ CUDA_VISIBLE_DEVICES ================
+0,1
+
+================ CONDA ================
+CONDA_PREFIX = /home/user03/miniconda3/envs/o3
+CONDA_DEFAULT_ENV = o3
+
+================ PYTHON ================
+/home/user03/miniconda3/envs/o3/bin/python
+Python 3.10.20
+
+================ TORCH INFO ================
+torch file            = /home/user03/miniconda3/envs/o3/lib/python3.10/site-packages/torch/__init__.py
+torch version         = 1.12.1+cu113
+torch.version.cuda    = 11.3
+cuda.is_available     = True
+cuda.device_count     = 2
+GPU 0: NVIDIA A100-SXM4-80GB
+GPU 1: NVIDIA A100-SXM4-80GB
+
+================ CUDA TEST ================
+CUDA matmul OK
+tensor([[-0.3959, -0.1990],
+        [ 0.6930,  0.5825]], device='cuda:0')
+
+================ PIP PACKAGES ================
+Name: torch
+Version: 1.12.1+cu113
+Summary: Tensors and Dynamic neural networks in Python with strong GPU acceleration
+Home-page: https://pytorch.org/
+Author: PyTorch Team
+Author-email: packages@pytorch.org
+License: BSD-3
+Location: /home/user03/miniconda3/envs/o3/lib/python3.10/site-packages
+Requires: typing-extensions
+Required-by: accelerate, calflops, deepspeed, peft, torchaudio, torchnet, torchvision
+---
+Name: torchvision
+Version: 0.13.1+cu113
+Summary: image and video datasets and models for torch deep learning
+Home-page: https://github.com/pytorch/vision
+Author: PyTorch Core Team
+Author-email: soumith@pytorch.org
+License: BSD
+Location: /home/user03/miniconda3/envs/o3/lib/python3.10/site-packages
+Requires: numpy, pillow, requests, torch, typing-extensions
+Required-by: 
+---
+Name: torchaudio
+Version: 0.12.1+cu113
+Summary: An audio package for PyTorch
+Home-page: https://github.com/pytorch/audio
+Author: Soumith Chintala, David Pollack, Sean Naren, Peter Goldsborough
+Author-email: soumith@pytorch.org
+License: UNKNOWN
+Location: /home/user03/miniconda3/envs/o3/lib/python3.10/site-packages
+Requires: torch
+Required-by: 
+---
+Name: transformers
+Version: 4.31.0
+Summary: State-of-the-art Machine Learning for JAX, PyTorch and TensorFlow
+Home-page: https://github.com/huggingface/transformers
+Author: The Hugging Face team (past and future) with the help of all our contributors (https://github.com/huggingface/transformers/graphs/contributors)
+Author-email: transformers@huggingface.co
+License: Apache 2.0 License
+Location: /home/user03/miniconda3/envs/o3/lib/python3.10/site-packages
+Requires: filelock, huggingface-hub, numpy, packaging, pyyaml, regex, requests, safetensors, tokenizers, tqdm
+Required-by: peft
+---
+Name: peft
+Version: 0.10.0
+Summary: Parameter-Efficient Fine-Tuning (PEFT)
+Home-page: https://github.com/huggingface/peft
+Author: The HuggingFace team
+Author-email: sourab@huggingface.co
+License: Apache
+Location: /home/user03/miniconda3/envs/o3/lib/python3.10/site-packages
+Requires: accelerate, huggingface-hub, numpy, packaging, psutil, pyyaml, safetensors, torch, tqdm, transformers
+Required-by: 
+---
+Name: accelerate
+Version: 0.28.0
+Summary: Accelerate
+Home-page: https://github.com/huggingface/accelerate
+Author: The HuggingFace team
+Author-email: zach.mueller@huggingface.co
+License: Apache
+Location: /home/user03/miniconda3/envs/o3/lib/python3.10/site-packages
+Requires: huggingface-hub, numpy, packaging, psutil, pyyaml, safetensors, torch
+Required-by: calflops, peft
+---
+Name: deepspeed
+Version: 0.14.0
+Summary: DeepSpeed library
+Home-page: http://deepspeed.ai
+Author: DeepSpeed Team
+Author-email: deepspeed-info@microsoft.com
+License: Apache Software License 2.0
+Location: /home/user03/miniconda3/envs/o3/lib/python3.10/site-packages
+Requires: hjson, ninja, numpy, packaging, psutil, py-cpuinfo, pydantic, pynvml, torch, tqdm
+Required-by: 
+
+================ ENV ================
+CONDA_EXE=/home/user03/miniconda3/bin/conda
+LIBRARY_PATH_modshare=/cm/shared/apps/slurm/current/lib64:1:/cm/shared/apps/slurm/current/lib64/slurm:1
+CPATH_modshare=/cm/shared/apps/slurm/current/include:1
+MANPATH_modshare=/usr/local/share/man:1:/usr/mpi/gcc/openmpi-4.1.7a1/share/man:1:/cm/local/apps/environment-modules/current/share/man:1:/cm/local/apps/environment-modules/4.5.3/share/man:1:/usr/local/man:1:/usr/share/man:1:/cm/shared/apps/slurm/current/man:1
+CONDA_PREFIX=/home/user03/miniconda3/envs/o3
+MANPATH=/cm/shared/apps/slurm/current/man:/usr/mpi/gcc/openmpi-4.1.7a1/share/man:/cm/local/apps/environment-modules/4.5.3/share/man:/usr/local/man:/usr/local/share/man:/usr/share/man:/cm/local/apps/environment-modules/current/share/man
+LD_LIBRARY_PATH_modshare=/cm/shared/apps/slurm/current/lib64:1:/cm/shared/apps/slurm/current/lib64/slurm:1:/usr/mpi/gcc/openmpi-4.1.7a1/lib:1
+CONDA_PROMPT_MODIFIER=(o3) 
+LD_RUN_PATH_modshare=/usr/mpi/gcc/openmpi-4.1.7a1/lib:1
+PATH_modshare=/usr/mpi/gcc/openmpi-4.1.7a1/bin:1:/usr/bin:1:/usr/local/bin:1:/cm/shared/apps/slurm/current/bin:1:/cm/shared/apps/slurm/current/sbin:1:/bin:1:/snap/bin:1:/sbin:1:/usr/sbin:1:/usr/games:1:/cm/local/apps/environment-modules/4.5.3/bin:1:/usr/local/sbin:1:/usr/local/games:1
+CUDA_VISIBLE_DEVICES=0,1
+_CE_CONDA=
+LIBRARY_PATH=/cm/shared/apps/slurm/current/lib64/slurm:/cm/shared/apps/slurm/current/lib64
+CONDA_SHLVL=2
+LD_RUN_PATH=/usr/mpi/gcc/openmpi-4.1.7a1/lib
+CONDA_PYTHON_EXE=/home/user03/miniconda3/bin/python
+LD_LIBRARY_PATH=/cm/shared/apps/slurm/current/lib64/slurm:/cm/shared/apps/slurm/current/lib64:/usr/mpi/gcc/openmpi-4.1.7a1/lib
+CONDA_DEFAULT_ENV=o3
+PATH=/home/user03/.local/bin:/home/user03/.cargo/bin:/home/user03/miniconda3/envs/o3/bin:/home/user03/miniconda3/condabin:/cm/shared/apps/slurm/current/sbin:/cm/shared/apps/slurm/current/bin:/usr/mpi/gcc/openmpi-4.1.7a1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/sbin:/usr/sbin:/cm/local/apps/environment-modules/4.5.3/bin
+MODULEPATH=/cm/local/modulefiles:/cm/shared/modulefiles
+CONDA_PREFIX_1=/home/user03/miniconda3
+CPATH=/cm/shared/apps/slurm/current/include
