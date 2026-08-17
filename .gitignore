@@ -1,0 +1,9 @@
+Unlearning_expriment/**/__pycache__/
+# Unlearning_expriment/SCALE_0.1_seed_0_o_unlearn_lora_checkpoints/lora_forget_*/
+Unlearning_expriment/SCALE_0.1_seed_0_o_unlearn_lora_checkpoints/test_OLD/
+# Unlearning_expriment/ood_checkpoints_codellama_0/
+Unlearning_expriment/logs/
+Unlearning_expriment/feats_logs/
+Unlearning_expriment/mah_logs/
+Unlearning_expriment/*.xlsx
+Unlearning_expriment/data/
