@@ -244,7 +244,10 @@ def train(
             f"```python\n"
             f"{code_context}"
         )
-        full_prompt = user_prompt + data_point["y_pos"]
+        y_pos = data_point.get("y_pos")
+        if y_pos is None:
+            y_pos = ""
+        full_prompt = user_prompt + str(y_pos)
         tokenized_full_prompt = tokenize(full_prompt)
         if not train_on_inputs:
             tokenized_user_prompt = tokenize(
