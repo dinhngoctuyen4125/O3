@@ -1,10 +1,23 @@
+#!/bin/bash
+
+#SBATCH --job-name=tuyen
+#SBATCH --output=logs/output_%j.log
+#SBATCH --error=logs/error_%j.log
+#SBATCH --partition=gpu
+#SBATCH --qos=normal
+#SBATCH --gres=gpu:1
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=128G
+#SBATCH --time=72:00:00
+
 BASE_MODEL="codellama/CodeLlama-7b-Instruct-hf"
 for SCALE in 0.1
 do
     for SEED in 0
     do
         OUTPUT_1="./SCALE_${SCALE}_seed_${SEED}_o_unlearn_lora_checkpoints/lora_forget"
-        DATAPATH_1="./data/codellama/D_forget.json"
+        # DATAPATH_1="./data/codellama/D_forget.json"
+        DATAPATH_1="../../Data-Collection/codellama/D_forget.json"
 
         # Train on D_forget.json
         python train_unlearn_lora_o.py \
@@ -29,7 +42,8 @@ do
             --add_eos_token
 
         # Eval on D_test.json
-        TESTPATH_1="./data/codellama/D_test.json"
+        # TESTPATH_1="./data/codellama/D_test.json"
+        TESTPATH_1="../../Data-Collection/codellama/D_test.json"
         python eval_lora.py \
             --test_dataset ${TESTPATH_1} \
             --base_model ${BASE_MODEL} \

@@ -3,8 +3,8 @@ do
     python train_ood.py \
         --unlearn_dataset "codellama_all" \
         --ood_dataset "ood_codellama" \
-        --base_unlearn_path "./data/codellama/D_forget.json" \
-        --base_ood_path "./data/codellama/D_forget.json" \
+        --base_unlearn_path "../../Data-Collection/codellama/D_forget.json" \
+        --base_ood_path "../../Data-Collection/codellama/D_forget.json" \
         --model_name_or_path "microsoft/codebert-base" \
         --seed ${SEED}
 done
