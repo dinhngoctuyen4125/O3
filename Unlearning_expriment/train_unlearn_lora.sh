@@ -10,7 +10,7 @@ do
         DATAPATH_1="../../Data-Collection/codellama/D_forget.json"
 
         # Train on D_forget.json
-        python train_unlearn_lora_o.py \
+        /home/ritsu/miniconda3/envs/o3/bin/python train_unlearn_lora_o.py \
             --base_model ${BASE_MODEL} \
             --data_path ${DATAPATH_1} \
             --output_dir ${OUTPUT_1} \
@@ -34,7 +34,7 @@ do
         # Eval on D_test.json
         # TESTPATH_1="./data/codellama/D_test.json"
         TESTPATH_1="../../Data-Collection/codellama/D_test.json"
-        python eval_lora.py \
+        /home/ritsu/miniconda3/envs/o3/bin/python eval_lora.py \
             --test_dataset ${TESTPATH_1} \
             --base_model ${BASE_MODEL} \
             --seed ${SEED} \
