@@ -343,8 +343,8 @@ def train(
             num_train_epochs=num_epochs,
             # max_steps=5, # DEBUGGING!!!
             learning_rate=learning_rate,
-            fp16=True,
-            bf16=False,
+            # fp16=True,
+            bf16=True,
             logging_steps=10,
             optim="adamw_torch",
             evaluation_strategy="steps" if val_set_size > 0 else "no",
