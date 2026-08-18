@@ -3,7 +3,7 @@
 #SBATCH --job-name=tuyen
 #SBATCH --output=logs/output_%j.log
 #SBATCH --error=logs/error_%j.log
-#SBATCH --partition=gpu
+#SBATCH --partition=defq
 #SBATCH --qos=normal
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=16
