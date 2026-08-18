@@ -4,11 +4,11 @@
 #SBATCH --output=logs/output_%j.log
 #SBATCH --error=logs/error_%j.log
 #SBATCH --partition=defq
-#SBATCH --qos=normal
+#SBATCH --qos=short
+#SBATCH --time=24:00:00
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=16
 #SBATCH --mem=128G
-#SBATCH --time=72:00:00
 
 BASE_MODEL="codellama/CodeLlama-7b-Instruct-hf"
 for SCALE in 0.1
