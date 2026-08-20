@@ -516,7 +516,12 @@ class Linear(nn.Module, LoraLayer):
                 ###modified
                 if not self.use_dora[active_adapter]:
                     out = lora_B(lora_A(dropout(x))) * scaling
-                    result = result * ood_weight[0] + out * ood_weight[1]
+                    w = ood_weight[1]
+                    if isinstance(w, torch.Tensor) and w.dim() >= 1:
+                        # w shape: (batch_size,) → reshape to (batch_size, 1, 1)
+                        # for broadcasting with result/out shape (batch_size, seq_len, hidden)
+                        w = w.view(-1, *([1] * (result.dim() - 1)))
+                    result = result * ood_weight[0] + out * w
                 else:
                     x = dropout(x)
                     result = result + self._apply_dora(x, lora_A, lora_B, scaling, active_adapter)

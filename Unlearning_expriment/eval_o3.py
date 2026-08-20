@@ -364,24 +364,28 @@ def main():
         # OOD scoring: dùng trường "function" cho OOD module
         ood_texts = [example.get('function', example.get('probing input new', '')) for example in batch]
         ood_input = ood_tokenizer(ood_texts, padding='max_length', truncation=True, max_length=512, return_tensors="pt")
-        max_ood = 0
+        cur_batch_size = len(batch)
+        # Per-sample max weight across all OOD detectors
+        max_ood_per_sample = np.zeros(cur_batch_size)
 
-        for i in range((len(ood_weights))):
+        for i in range(len(ood_weights)):
             mah_score = ood_models[i].get_unsup_Mah_score_s(ood_input, ood_mean_lists[i], ood_precision_lists[i], ood_fea_lists[i])[:, 1:]
-            test_score = ood_clrs[i].score_samples(mah_score)
-            w_ood = obtain_weights(test_score, ood_gmm_w_cls[i], ood_x0[i])
-            if w_ood > max_ood:
-                max_ood = w_ood
+            test_score = ood_clrs[i].score_samples(mah_score)  # shape: (cur_batch_size,)
+            w_ood = np.array([obtain_weights(s, ood_gmm_w_cls[i], ood_x0[i]) for s in test_score])
+            max_ood_per_sample = np.maximum(max_ood_per_sample, w_ood)
 
-        all_w_res.append(max_ood)
-        dic_key = str(max_ood)[:5]
-        if dic_key in all_w_res_dic:
-            all_w_res_dic[dic_key] += 1
-        else:
-            all_w_res_dic[dic_key] = 1
+        # Log & track per-sample weights
+        for w in max_ood_per_sample:
+            all_w_res.append(w)
+            dic_key = str(w)[:5]
+            if dic_key in all_w_res_dic:
+                all_w_res_dic[dic_key] += 1
+            else:
+                all_w_res_dic[dic_key] = 1
 
-        print("ood_weight: ", [1, max_ood])
-        model.init_oodweight(ood_weight=[1, max_ood])
+        print("ood_weight per sample: ", max_ood_per_sample)
+        ood_weight_tensor = torch.tensor(max_ood_per_sample, dtype=torch.bfloat16).to(device)
+        model.init_oodweight(ood_weight=[1, ood_weight_tensor])
 
         # Generate prediction
         inputs = tokenizer(batch_prompts, padding=True, return_tensors="pt", truncation=True, max_length=MAX_PROMPT_LENGTH)
