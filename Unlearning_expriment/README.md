@@ -7,6 +7,7 @@ conda create -n o3 python=3.10
 conda activate o3
 pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu118
 pip install python-dateutil
+pip install evaluate
 ```
 
 ## 2) Training OOD module
