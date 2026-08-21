@@ -19,7 +19,7 @@ do
     OUTPUT_1="./SCALE_${SCALE}_seed_${SEED}_o_unlearn_lora_checkpoints/lora_forget"
 
     # Eval on D_test.json
-    TESTPATH_1="./data/codellama/D_test.json"
+    TESTPATH_1="../../Data-Collection/codellama/D_test.json"
     python eval_o3.py \
       --test_dataset ${TESTPATH_1} \
       --base_model ${BASE_MODEL} \
