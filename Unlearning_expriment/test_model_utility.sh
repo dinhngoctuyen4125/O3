@@ -12,7 +12,7 @@
 
 MODEL="codellama/CodeLlama-7b-Instruct-hf"
 MODEL_NAME="O3-OOD-CodeLlama-7b"
-LORA_CHECKPOINT="./SCALE_0.1_seed_0_o_unlearn_lora_checkpoints/lora_forget"
+LORA_CHECKPOINT="tummitum/O-LoRA"
 OOD_WEIGHTS="./ood_checkpoints_codellama_0/"
 OUTPUT_DIR="outputs/results/model_utility"
 SUFFIX="2026"
@@ -34,7 +34,7 @@ export LD_LIBRARY_PATH=/home/ritsu/miniconda3/envs/simnpo/lib/python3.10/site-pa
     --output-dir ${OUTPUT_DIR} \
     --output-file-suffix ${SUFFIX}
 
-/home/ritsu/miniconda3/envs/prod_eval/bin/python evaluatre.py \
+/home/ritsu/miniconda3/envs/o3/bin/python evaluatre.py \
     --dataset HumanEval \
     --input_path "${OUTPUT_DIR}/HumanEval_${MODEL_NAME}_temp0.2_toppNone_topkNone_samples5_0shot_${SUFFIX}.jsonl" \
     --truncate \
