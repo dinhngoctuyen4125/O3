@@ -4,7 +4,7 @@ import copy
 
 from evaluate.execute.execution import evaluate_with_test_code
 from evaluate.evaluation import pass_at_K
-from utils import load_dataset_my, load_dataset_map_my, truncate_back_no_signature
+from eval_utils import load_dataset_my, load_dataset_map_my, truncate_back_no_signature
 
 
 parser = argparse.ArgumentParser()
