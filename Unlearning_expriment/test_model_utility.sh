@@ -19,7 +19,7 @@ SUFFIX="2026"
 
 export LD_LIBRARY_PATH=/home/ritsu/miniconda3/envs/simnpo/lib/python3.10/site-packages/nvidia/cudnn/lib:$LD_LIBRARY_PATH
 
-/home/ritsu/miniconda3/envs/o3/bin/python test_model_utility.py \
+/home/ritsu/miniconda3/envs/simnpo/bin/python test_model_utility.py \
     --model_name ${MODEL_NAME} \
     --model_path ${MODEL} \
     --lora_path ${LORA_CHECKPOINT} \
@@ -34,7 +34,7 @@ export LD_LIBRARY_PATH=/home/ritsu/miniconda3/envs/simnpo/lib/python3.10/site-pa
     --output-dir ${OUTPUT_DIR} \
     --output-file-suffix ${SUFFIX}
 
-/home/ritsu/miniconda3/envs/o3/bin/python evaluatre.py \
+/home/ritsu/miniconda3/envs/simnpo/bin/python evaluatre.py \
     --dataset HumanEval \
     --input_path "${OUTPUT_DIR}/HumanEval_${MODEL_NAME}_temp0.2_toppNone_topkNone_samples5_0shot_${SUFFIX}.jsonl" \
     --truncate \
