@@ -34,7 +34,7 @@ python read_results_oodlora.py
 
 ## 5) Evaluate Model Utility on HumanEval
 To evaluate the model's utility (pass@k) on the HumanEval dataset using soft-weighted inference, you can run:
-```
-sbatch test_model_utility.sh
+```bash
+sudo nohup bash test_model_utility.sh > test_model_utility.log 2>&1 &
 ```
 This script will automatically generate code for the 164 tasks and execute `evaluatre.py` to calculate the pass@1, pass@3, and pass@5 metrics.
