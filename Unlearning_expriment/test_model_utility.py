@@ -244,7 +244,7 @@ def generate_code_for_tasks(args, except_tasks, save_file):
         prompt = dataset[i]["prompt"]
 
         # Set OOD weight if in OOD mode
-        if ood_model_ref and ood_components:
+        if ood_model_ref is not None and ood_components is not None:
             ood_mdl, ood_tok, ood_clr, ood_gmm, ood_x0, ood_mean, ood_prec, ood_fea = ood_components
             enc = ood_tok(prompt, padding=True, truncation=True, max_length=512, return_tensors='pt')
 
