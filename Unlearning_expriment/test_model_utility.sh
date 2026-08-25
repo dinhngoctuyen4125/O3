@@ -13,7 +13,7 @@
 MODEL="codellama/CodeLlama-7b-Instruct-hf"
 MODEL_NAME="O3-OOD-CodeLlama-7b"
 LORA_CHECKPOINT="tummitum/O-LoRA"
-OOD_WEIGHTS="./ood_checkpoints_codellama_0/"
+OOD_WEIGHTS="../SimNPO/ood_checkpoints_codellama_0/"
 OUTPUT_DIR="outputs/results/model_utility"
 SUFFIX="2026"
 
